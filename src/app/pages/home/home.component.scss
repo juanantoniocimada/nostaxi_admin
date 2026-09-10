@@ -1,0 +1,181 @@
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background-color: color-mix(in srgb, var(--cv-white) 90%, var(--cv-blue) 10%);
+  padding: 16px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.header-flag {
+  width: 33px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.main-title {
+  border-bottom: 3px solid color-mix(in srgb, var(--cv-blue) 30%, var(--cv-white) 70%);
+  padding: 3px 8px;
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: var(--cv-blue);
+}
+
+.main-subtitle {
+  width: 100%;
+  font-size: 0.7rem;
+  color: var(--cv-blue);
+}
+
+.material-proof-card {
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.material-proof-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.material-proof-field {
+  width: 100%;
+}
+
+.item-top {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--cv-blue);
+}
+
+.item-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.item-left {
+  grid-area: left;
+  font-weight: 600;
+}
+
+.item-right {
+  grid-area: right;
+  justify-self: end;
+  font-weight: 600;
+}
+
+.item-bottom {
+  grid-area: bottom;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--taxi-black) 70%, var(--taxi-gray) 30%);
+  border-top: 1px solid color-mix(in srgb, var(--taxi-black) 12%, var(--taxi-white) 88%);
+  padding-top: 6px;
+}
+
+.call-button {
+  border: 1px solid color-mix(in srgb, var(--cv-blue) 30%, var(--cv-white) 70%);
+  background: var(--cv-blue);
+  color: var(--cv-white);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.call-button:hover {
+  background: color-mix(in srgb, var(--cv-blue) 85%, var(--cv-red) 15%);
+}
+
+.map-instruction {
+  // border: 1px solid gainsboro;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: var(--cv-blue);
+  margin-bottom: 8px;
+  // text-align: center;
+}
+
+/* Pickup time row */
+.pickup-row {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.pickup-input {
+  flex: 1;
+}
+
+.pickup-now {
+  width: 110px;
+  text-align: center;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--cv-blue) 30%, var(--cv-white) 70%);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--cv-blue);
+  font-weight: 600;
+}
+
+.btn-outline:hover {
+  background: color-mix(in srgb, var(--cv-blue) 8%, var(--cv-white) 92%);
+}
+
+/* Primary action button (search) */
+.primary-action {
+  background: var(--cv-blue);
+  color: var(--cv-white);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.primary-action:hover {
+  opacity: 0.95;
+}
+
+.error-message {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  // margin-top: 16px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid orange;
+  
+}
+
+.next-taxi-info {
+  margin-bottom: 16px;
+  padding: 8px;
+  background-color: color-mix(in srgb, var(--cv-blue) 10%, var(--cv-white) 90%);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: orange;
+}

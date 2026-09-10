@@ -1,1 +1,100 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((color: (primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+}
+
+
+// =======================
+// BANDERA CABO VERDE
+// =======================
+$cv-blue: #003893;
+$cv-red: #CF2027;
+$cv-white: #FFFFFF;
+$cv-yellow: #F7D116;
+
+// =======================
+// TAXI COLORS
+// =======================
+$taxi-yellow-nyc-1: #FFD300;
+$taxi-yellow-nyc-2: #F7C600;
+$taxi-black: #000000;
+$taxi-white: #FFFFFF;
+$taxi-gray: #6E6E6E;
+
+:root {
+  --cv-blue: #{$cv-blue};
+  --cv-red: #{$cv-red};
+  --cv-white: #{$cv-white};
+  --cv-yellow: #{$cv-yellow};
+  --taxi-yellow-nyc-1: #{$taxi-yellow-nyc-1};
+  --taxi-yellow-nyc-2: #{$taxi-yellow-nyc-2};
+  --taxi-black: #{$taxi-black};
+  --taxi-white: #{$taxi-white};
+  --taxi-gray: #{$taxi-gray};
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.btn-outline {
+  box-sizing: border-box;
+  background-color: var(--cv-blue);
+  width: 120px;
+  font-size: larger;
+  color: aliceblue;
+  height: 32px;
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.input-field {
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--cv-blue) 30%, var(--cv-white) 70%);
+}
+
+.page-content {
+	margin-top: 8em;
+	padding: 1em;
+}
 /* You can add global styles to this file, and also import other style files */

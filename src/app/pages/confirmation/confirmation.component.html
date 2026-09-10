@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<div class="card" style="margin-top: 8em;">
+
+  <p>
+    Trip confirmation
+  </p>
+
+  <div style="" class="driver-info">
+    <p>
+      Taxista atribuído
+    </p>
+
+    <img [src]="driverData?.photo" alt="">
+
+    <p>
+      name : {{ driverData?.driverName }}
+    </p>
+    <p>
+      tel : {{ driverData?.driverPhone }}
+    </p>
+    <p>
+      car : {{ driverData?.vehicleModel }}
+    </p>
+    <p>
+      plate : {{ driverData?.vehiclePlate }}
+    </p>
+    <p>
+      isla : {{ driverData?.island }}
+    </p>
+  </div>
+
+  <p>
+    Trip details
+  </p>
+
+  <div style="background-color: #f5f5f5; padding: 1em; border-radius: 0.5em; margin-bottom: 1em;">
+    <p><strong>📍 Origen</strong></p>
+    <p>{{ tripData?.data?.userOriginPosName }}</p>
+    <p>
+      Lat: {{ tripData?.data?.userOriginPosLat }} |
+      Lng: {{ tripData?.data?.userOriginPosLng }}
+    </p>
+  </div>
+
+  <div style="background-color: #f5f5f5; padding: 1em; border-radius: 0.5em; margin-bottom: 1em;">
+    <p><strong>🏁 Destino</strong></p>
+    <p>{{ tripData?.data?.userDestinationPosName }}</p>
+    <p>
+      Lat: {{ tripData?.data?.userDestinationPosLat }} |
+      Lng: {{ tripData?.data?.userDestinationPosLng }}
+    </p>
+  </div>
+
+  <div class="driver-status">
+
+    <div class="status-card green" *ngIf="departureIn === 0">
+      <div class="icon">🚖</div>
+      <div class="title">El taxista sale ahora</div>
+      <div class="subtitle">Está iniciando el servicio.</div>
+    </div>
+
+    <div class="status-card orange" *ngIf="departureIn === 5">
+      <div class="icon">⏱️</div>
+      <div class="title">El taxista sale en 5 minutos</div>
+      <div class="subtitle">Prepárate, llegará muy pronto.</div>
+    </div>
+
+    <div class="status-card red" *ngIf="departureIn === 10">
+      <div class="icon">🕒</div>
+      <div class="title">El taxista sale en 10 minutos</div>
+      <div class="subtitle">Puedes esperar unos minutos más.</div>
+    </div>
+
+  </div>
+
+  <!-- driver-tracking -->
+  <div
+    (click)="goToDriverTracking()"
+  class="map-button"
+  >
+    ver en el mapa
+  </div>
+
+</div>

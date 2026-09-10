@@ -1,0 +1,103 @@
+<app-header></app-header>
+
+<!--
+  <button style="margin-top: 10%;" class="btn-outline" (click)="activateLocation()">
+    solicitar permissão de localização
+  </button>
+-->
+
+<div>
+
+  <mat-card class="material-proof-card" style="margin-top: 8em;">
+
+    <!--
+    <div class="next-taxi-info">
+
+    </div>
+    -->
+
+    <h1>Hola , {{ user?.name }}!</h1>
+    <h2>Bem-vindo ao NosTaxi</h2>
+
+    <!--
+      @if(!hasLocation) {
+      <div>Obtendo localização...</div>
+      } @else {
+      <div>Localização obtida</div>
+      }
+
+
+      <p *ngIf="loadingDestinationSuggestions">Carregando sugestões...</p>
+      <p style="color: red;" *ngIf="!loadingDestinationSuggestions && destinationSuggestions.length === 0">Nenhuma
+        sugestão encontrada.</p>
+      <p *ngIf="!loadingDestinationSuggestions && destinationSuggestions.length > 0">Sugestões encontradas: {{
+        destinationSuggestions.length }}</p>
+
+      <input class="input-field" matInput type="text" [matAutocomplete]="destinationAuto"
+        placeholder="Selecione o destino" [(ngModel)]="addressDestination" (input)="onDestinationInput($event)" />
+
+      <mat-autocomplete #destinationAuto="matAutocomplete" (optionSelected)="selectDestination($event.option.value)">
+        @for (suggestion of destinationSuggestions; track suggestion.tags.name) {
+        <mat-option [value]="suggestion">
+          {{ suggestion.tags.name }}
+        </mat-option>
+        }
+      </mat-autocomplete>
+    -->
+
+    <div style="border: 1px solid #ccc; padding: 1em; border-radius: 0.5em; margin-bottom: 1em;">
+      <p>
+        Quando queres o táxi?
+      </p>
+
+      <div class="pickup-row">
+
+        <div class="pickup-now">
+          <button class="btn-outline" (click)="pickupNow()">Agora</button>
+        </div>
+
+        <div class="pickup-input">
+          <label for="pickupTime">agendar:</label>
+          <br />
+          <input class="input-field" type="datetime-local" name="pickupTime" id="pickupTime" [(ngModel)]="pickupTime" />
+        </div>
+
+      </div>
+    </div>
+
+    <button class="primary-action" (click)="search()">
+      Procurar táxi
+    </button>
+
+  </mat-card>
+
+  <!--
+
+  <div class="map-instruction">
+    <ul>
+      <li>Arraste o mapa com os dedos</li>
+    </ul>
+  </div>
+
+  <div class="map-section">
+
+    @if (hasLocation) {
+
+    <app-map [mapTileUrl]="tileLayerUrl" [center]="[latitude, longitude]" [routeColor]="routeColor" [user]="userDivIcon"
+      [bus]="bus" [destination]="destination" [stop]="stop" [stopDisabled]="stopDisabled"
+      (stopClick)="stopClick($event)" (lineClick)="lineClick($event)" (mapClick)="mapClick($event)">
+
+    </app-map>
+
+    }
+  </div>
+  -->
+
+</div>
+
+<div class="error-message" *ngIf="errorMessages && errorMessages.length > 0">
+  @for (errorMessage of errorMessages; track errorMessage) {
+  <p style="color: gray;">- {{ errorMessage }}</p>
+  <hr />
+  }
+</div>
