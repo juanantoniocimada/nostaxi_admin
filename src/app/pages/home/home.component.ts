@@ -45,10 +45,7 @@ import { Loading } from '../../services/loading';
 
 export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild(MapComponent) mapComponent?: MapComponent;
-  
-  errorMessages: string[] = [
-    
-  ];
+
 
   router = inject(Router);
   nestjsService = inject(NestJSService);
@@ -57,6 +54,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   nominatimService = inject(Nominatim);
   placesService = inject(Google);
   loadingService = inject(Loading);
+  userService = inject(User);
+  
 
   tileLayerUrl = tileLayerUrl;
   bus = busDivIcon;
@@ -64,8 +63,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   stop = stopDivIcon;
   userDivIcon = userDivIcon;
   stopDisabled = stopDisabledDivIcon;
-
-  userService = inject(User);
   
   loadingDestinationSuggestions = false;
 
@@ -113,14 +110,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getLocation() {
 
-
     if (this.locationWatchId !== null) {
-      this.errorMessages.push('no se puede obtener la ubicación, ya que ya se está obteniendo');
       return;
     }
 
     if (!navigator.geolocation) {
-      this.errorMessages.push('El navegador no soporta geolocalización');
       console.error('El navegador no soporta geolocalización');
       return;
     }
@@ -140,7 +134,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       (error) => {
         console.error('Error obteniendo ubicación:', error.message);
-        this.errorMessages.push('Error obteniendo ubicación:');
       },
       {
         enableHighAccuracy: true, // intenta usar GPS si está disponible
@@ -175,7 +168,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       })
       .catch(error => {
         console.error('Error obteniendo dirección desde Nominatim:', error);
-        this.errorMessages.push('Error obteniendo dirección desde Nominatim: ');
       });
   }
 
@@ -276,7 +268,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         }));
       }, (error: any) => {
         console.error('Error al buscar lugares en Google Places:', error);
-        this.errorMessages.push('Error al buscar lugares en Google Places: ');
         this.loadingDestinationSuggestions = false;
       });
 
@@ -300,7 +291,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       })
       .catch(error => {
         console.error('Error al buscar lugares en Overpass:', error);
-        this.errorMessages.push('Error al buscar lugares en Overpass: ');
       })
       .finally(() => {
         this.loadingDestinationSuggestions = false;

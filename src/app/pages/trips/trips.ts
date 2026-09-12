@@ -17,6 +17,7 @@ import { Nominatim } from '../../services/nominatim';
 import { Google } from '../../services/google';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { User } from '../../services/user';
 
 @Component({
   selector: 'app-trips',
@@ -44,6 +45,7 @@ export class Trips implements OnInit {
 
   nestjsService = inject(NestJSService);
   router = inject(Router);
+  user = inject(User);
 
   displayedColumns: string[] = [
     'confirmed',
@@ -51,20 +53,28 @@ export class Trips implements OnInit {
     'id',
     'pickupTime',
     'plate',
+    'actions'
   ];
 
   dataSource = new MatTableDataSource<any>([]);
+  pickupTime = new Date().toTimeString().slice(0, 5);
 
   ngOnInit(): void {
-    this.getTrips();
+
+    const user = this.user.getUserData();
+
+    console.log(user);
+    
+
+    this.getTrips(12);
   }
 
   goToHome(): void {
     this.router.navigate(['/home']);
   }
 
-getTrips(): void {
-  this.nestjsService.getTrips().subscribe({
+getTrips(user: any): void {
+  this.nestjsService.getTrips(user).subscribe({
     next: (response) => {
       console.log(response);
 

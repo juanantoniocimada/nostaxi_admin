@@ -40,7 +40,7 @@ export class NestJSService {
     return this._http.get(url);
   }
 
-  getTrips(): Observable<any> {
+  getTrips(user : any): Observable<any> {
     const url = `${this._apiUrl}/trips`;
     return this._http.get(url);
   }
